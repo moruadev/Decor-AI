@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol Coordinator: AnyObject {
+    func start()
+    func removeAllChilds()
+}

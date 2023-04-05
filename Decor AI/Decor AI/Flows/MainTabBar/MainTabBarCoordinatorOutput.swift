@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+typealias EmptyClosure = () -> Void
+
+protocol MainTabBarCoordinatorOutput: class {
+    var onLogout: EmptyClosure? { get set }
+}

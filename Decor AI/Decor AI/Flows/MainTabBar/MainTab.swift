@@ -18,22 +18,22 @@ enum MainTab: Int, CaseIterable {
     var title: String {
         switch self {
         case .home:
-            ""
+            return ""
         case .camera:
-            ""
+            return ""
         case .history:
-            ""
+            return ""
         }
     }
 
     var image: UIImage {
         switch self {
         case .home:
-            break
+            return UIImage(systemName: "house.fill")!
         case .camera:
-            break
+            return UIImage(systemName: "camera.aperture")!
         case .history:
-            break
+            return UIImage(systemName: "clock.fill")!
         }
     }
 

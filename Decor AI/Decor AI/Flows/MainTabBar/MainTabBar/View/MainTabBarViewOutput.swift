@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol MainTabBarViewOutput {
+    func selectTab(with tab: MainTab, isInitial: Bool)
+}

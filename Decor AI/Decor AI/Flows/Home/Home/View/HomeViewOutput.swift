@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol HomeViewOutput {
+    func viewLoaded()
+    func update()
+}
