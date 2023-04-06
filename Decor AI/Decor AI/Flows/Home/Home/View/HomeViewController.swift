@@ -6,94 +6,220 @@
 //
 
 import UIKit
+import Photos
+import SnapKit
 
 final class HomeViewController: UIViewController {
-
-    // MARK: - Constants
-
-    private enum Constants {
-        static let buttonSize = CGSize(width: 250.0, height: 30.0)
-    }
-
+    
     // MARK: - Properties
-
     var output: HomeViewOutput?
-
+    
     // MARK: - Private Properties
-
-    private let randomImageView = UIImageView()
-    private let buttonContainer = UIView()
-    private let updateButton = UIButton(type: .custom)
-
+    
+    private var assets: PHFetchResult<PHAsset>?
+    private let homeHeaderView = HomeHeaderView()
+    private let galleryHeaderView = GalleryHeaderView()
+    
+    private lazy var stylesCollectionView: UICollectionView = {
+        let layout = ZoomAndSnapFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 8
+        layout.minimumInteritemSpacing = 8
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+    
+    private lazy var galleryContainerView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 20
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     // MARK: - UIViewController
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        output?.viewLoaded()
-    }
-
-    override func viewDidLayoutSubviews() {
         
+        output?.viewLoaded()
+        setupViews()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
 }
 
 // MARK: - HomeViewInput
 
 extension HomeViewController: HomeViewInput {
-
+    
     func setupInitialState() {
         configureBackground()
         configureNavigationBar()
-        configureImageView()
-        configureButtonContainer()
-        configureUpdateButton()
+    }
+    
+    func updateCollectionView(with assets: PHFetchResult<PHAsset>) {
+        self.assets = assets
+        collectionView.reloadData()
     }
 }
 
 // MARK: - Configuration
 
 private extension HomeViewController {
-
+    
     func configureBackground() {
-        view.backgroundColor = Color.Main.background
+        view.backgroundColor = ColorFactory.Main.background
     }
-
+    
     func configureNavigationBar() {
-        navigationController?.applyWhiteNavigationBarStyle()
         title = R.string.localizable.home()
     }
-
-    func configureImageView() {
-        view.addSubview(randomImageView)
-        randomImageView.contentMode = .scaleAspectFit
-        randomImageView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
-    }
-
-    func configureButtonContainer() {
-        view.addSubview(buttonContainer)
-        buttonContainer.anchor(top: randomImageView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
-        buttonContainer.heightAnchor.constraint(equalTo: randomImageView.heightAnchor, multiplier: 1.0 / 3.0, constant: 0).isActive = true
-    }
-
-    func configureUpdateButton() {
-        buttonContainer.addSubview(updateButton)
-        updateButton.setTitle(R.string.localizable.home(), for: .normal)
-        updateButton.addTarget(self, action: #selector(updateButtonPressed), for: .touchUpInside)
-
-        updateButton.anchorCenter(to: buttonContainer)
-        updateButton.anchorSize(size: Constants.buttonSize)
-    }
-
+    
 }
 
 // MARK: - Actions
 
 private extension HomeViewController {
-
+    
+    func setupViews() {
+        setupHomeHeaderView()
+        setupStylesCollectionView()
+        setupContainerView()
+    }
+    
+    func setupHomeHeaderView() {
+        view.addSubview(homeHeaderView)
+        
+        homeHeaderView.snp.makeConstraints { make in
+            make.topMargin.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+        }
+    }
+    
+    func setupStylesCollectionView() {
+        stylesCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CellId")
+        
+        view.addSubview(stylesCollectionView)
+        
+        stylesCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(homeHeaderView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(160)
+        }
+    }
+    
+    func setupContainerView() {
+        view.addSubview(galleryContainerView)
+        galleryContainerView.snp.makeConstraints { make in
+            make.top.equalTo(stylesCollectionView.snp.bottom).offset(20)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        setupGalleryHeaderView()
+        setupCollectionView()
+    }
+    
+    func setupGalleryHeaderView() {
+        galleryContainerView.addSubview(galleryHeaderView)
+        galleryHeaderView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+        }
+    }
+    
+    func setupCollectionView() {
+        collectionView.register(AssetCollectionViewCell.self,
+                                forCellWithReuseIdentifier: "HomeAssetCollectionViewCell")
+        
+        galleryContainerView.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(galleryHeaderView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview()
+        }
+    }
+    
     @objc
     func updateButtonPressed() {
         output?.update()
     }
-
+    
 }
+
+// MARK: - UICollectionViewDelegate
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == self.collectionView {
+            return assets?.count ?? 0
+        } else if collectionView == stylesCollectionView {
+            return 15
+        }
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == self.collectionView {
+            guard let asset = assets?.object(at: indexPath.item),
+                  let image = UIImage.from(asset: asset) else {
+                return UICollectionViewCell()
+            }
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeAssetCollectionViewCell", for: indexPath) as! AssetCollectionViewCell
+            cell.configureCell(with: image)
+            return cell
+        } else if collectionView == stylesCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellId", for: indexPath)
+            cell.backgroundColor = .purple
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+}
+
+// MARK: - UICollectionViewFlowLayout
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.width - 16) / 3
+        
+        return CGSize(width: width, height: width)
+    }
+}
+
+

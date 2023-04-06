@@ -11,6 +11,7 @@
 		265ACE1929DBF7FD007B9FA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265ACE1829DBF7FD007B9FA6 /* ViewController.swift */; };
 		265ACE1E29DBF7FE007B9FA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265ACE1D29DBF7FE007B9FA6 /* Assets.xcassets */; };
 		265ACE2129DBF7FE007B9FA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265ACE1F29DBF7FE007B9FA6 /* LaunchScreen.storyboard */; };
+		26618D7829DEC2FE000D94DE /* GalleryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26618D7729DEC2FE000D94DE /* GalleryHeaderView.swift */; };
 		26BB5CEE29DD6D1E0069AF7B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5CED29DD6D1E0069AF7B /* Coordinator.swift */; };
 		26BB5CF029DD6D4C0069AF7B /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5CEF29DD6D4C0069AF7B /* ApplicationCoordinator.swift */; };
 		26BB5CF329DD6D890069AF7B /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5CF229DD6D890069AF7B /* BaseCoordinator.swift */; };
@@ -39,12 +40,28 @@
 		26BB5D3029DD77430069AF7B /* HomeViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5D2F29DD77430069AF7B /* HomeViewInput.swift */; };
 		26BB5D3229DD77530069AF7B /* HomeViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5D3129DD77530069AF7B /* HomeViewOutput.swift */; };
 		26BB5D3429DD77930069AF7B /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5D3329DD77930069AF7B /* UINavigationController.swift */; };
-		26BB5D3629DD77E40069AF7B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5D3529DD77E40069AF7B /* UIView.swift */; };
 		26BB5D4A29DD8EEE0069AF7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26BB5D4C29DD8EEE0069AF7B /* Localizable.strings */; };
 		26BB5D4F29DD90B70069AF7B /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 26BB5D4E29DD90B70069AF7B /* RswiftLibrary */; };
 		26BB5D5129DD90B70069AF7B /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 26BB5D5029DD90B70069AF7B /* rswift */; };
 		26BB5D5529DD91210069AF7B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5D5429DD91210069AF7B /* R.generated.swift */; };
+		26BB5D5C29DDBDBE0069AF7B /* AssetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5D5B29DDBDBE0069AF7B /* AssetCollectionViewCell.swift */; };
+		26BB5D7429DDE67B0069AF7B /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5D7329DDE67B0069AF7B /* HomeHeaderView.swift */; };
+		26BB5D7E29DE74590069AF7B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 26BB5D7D29DE74590069AF7B /* SnapKit */; };
+		26BB5D8129DE7AF00069AF7B /* ZoomAndSnapFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB5D8029DE7AF00069AF7B /* ZoomAndSnapFlowLayout.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		26BB5D7B29DE74000069AF7B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		265ACE1129DBF7FD007B9FA6 /* Decor AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Decor AI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +70,7 @@
 		265ACE1D29DBF7FE007B9FA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		265ACE2029DBF7FE007B9FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		265ACE2229DBF7FE007B9FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26618D7729DEC2FE000D94DE /* GalleryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryHeaderView.swift; sourceTree = "<group>"; };
 		26BB5CED29DD6D1E0069AF7B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		26BB5CEF29DD6D4C0069AF7B /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		26BB5CF229DD6D890069AF7B /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -81,9 +99,11 @@
 		26BB5D2F29DD77430069AF7B /* HomeViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewInput.swift; sourceTree = "<group>"; };
 		26BB5D3129DD77530069AF7B /* HomeViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewOutput.swift; sourceTree = "<group>"; };
 		26BB5D3329DD77930069AF7B /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
-		26BB5D3529DD77E40069AF7B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		26BB5D4B29DD8EEE0069AF7B /* en */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		26BB5D5429DD91210069AF7B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		26BB5D5B29DDBDBE0069AF7B /* AssetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCollectionViewCell.swift; sourceTree = "<group>"; };
+		26BB5D7329DDE67B0069AF7B /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		26BB5D8029DE7AF00069AF7B /* ZoomAndSnapFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomAndSnapFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26BB5D7E29DE74590069AF7B /* SnapKit in Frameworks */,
 				26BB5D4F29DD90B70069AF7B /* RswiftLibrary in Frameworks */,
 				26BB5D5129DD90B70069AF7B /* rswift in Frameworks */,
 			);
@@ -152,6 +173,7 @@
 		26BB5CEB29DD6D0F0069AF7B /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				26BB5D5929DDBDA00069AF7B /* ReusableLayers */,
 				26BB5D1229DD71E10069AF7B /* Extensions */,
 				26BB5CF129DD6D810069AF7B /* BaseClasses */,
 				26BB5CEC29DD6D160069AF7B /* Protocols */,
@@ -244,7 +266,6 @@
 				26BB5D1829DD72540069AF7B /* UIColor.swift */,
 				26BB5D1A29DD72900069AF7B /* UIImage.swift */,
 				26BB5D3329DD77930069AF7B /* UINavigationController.swift */,
-				26BB5D3529DD77E40069AF7B /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -311,6 +332,7 @@
 		26BB5D2429DD76020069AF7B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				26BB5D7229DDE65B0069AF7B /* CustomView */,
 				26BB5D2D29DD76D30069AF7B /* HomeViewController.swift */,
 				26BB5D2F29DD77430069AF7B /* HomeViewInput.swift */,
 				26BB5D3129DD77530069AF7B /* HomeViewOutput.swift */,
@@ -334,6 +356,40 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		26BB5D5929DDBDA00069AF7B /* ReusableLayers */ = {
+			isa = PBXGroup;
+			children = (
+				26BB5D7F29DE7AE00069AF7B /* CollectionViewFlowLayout */,
+				26BB5D5A29DDBDAF0069AF7B /* Cells */,
+			);
+			path = ReusableLayers;
+			sourceTree = "<group>";
+		};
+		26BB5D5A29DDBDAF0069AF7B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				26BB5D5B29DDBDBE0069AF7B /* AssetCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		26BB5D7229DDE65B0069AF7B /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				26BB5D7329DDE67B0069AF7B /* HomeHeaderView.swift */,
+				26618D7729DEC2FE000D94DE /* GalleryHeaderView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		26BB5D7F29DE7AE00069AF7B /* CollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				26BB5D8029DE7AF00069AF7B /* ZoomAndSnapFlowLayout.swift */,
+			);
+			path = CollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,6 +400,7 @@
 				265ACE0D29DBF7FD007B9FA6 /* Sources */,
 				265ACE0E29DBF7FD007B9FA6 /* Frameworks */,
 				265ACE0F29DBF7FD007B9FA6 /* Resources */,
+				26BB5D7B29DE74000069AF7B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +411,7 @@
 			packageProductDependencies = (
 				26BB5D4E29DD90B70069AF7B /* RswiftLibrary */,
 				26BB5D5029DD90B70069AF7B /* rswift */,
+				26BB5D7D29DE74590069AF7B /* SnapKit */,
 			);
 			productName = "Decor AI";
 			productReference = 265ACE1129DBF7FD007B9FA6 /* Decor AI.app */;
@@ -385,6 +443,7 @@
 			mainGroup = 265ACE0829DBF7FD007B9FA6;
 			packageReferences = (
 				26BB5D4D29DD90B70069AF7B /* XCRemoteSwiftPackageReference "R" */,
+				26BB5D7C29DE74590069AF7B /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 265ACE1229DBF7FD007B9FA6 /* Products */;
 			projectDirPath = "";
@@ -421,19 +480,22 @@
 				26BB5D2C29DD764E0069AF7B /* HomeModuleOutput.swift in Sources */,
 				26BB5D0129DD6EEF0069AF7B /* Router.swift in Sources */,
 				26BB5CFF29DD6ED20069AF7B /* MainTabBarCoordinatorOutput.swift in Sources */,
+				26BB5D7429DDE67B0069AF7B /* HomeHeaderView.swift in Sources */,
 				26BB5D1B29DD72900069AF7B /* UIImage.swift in Sources */,
 				26BB5CFD29DD6E1F0069AF7B /* MainTab.swift in Sources */,
 				26BB5D0B29DD6F720069AF7B /* MainTabBarModuleOutput.swift in Sources */,
+				26618D7829DEC2FE000D94DE /* GalleryHeaderView.swift in Sources */,
 				26BB5CF329DD6D890069AF7B /* BaseCoordinator.swift in Sources */,
 				26BB5D3229DD77530069AF7B /* HomeViewOutput.swift in Sources */,
 				26BB5D1929DD72540069AF7B /* UIColor.swift in Sources */,
 				26BB5D2A29DD76460069AF7B /* HomeModuleInput.swift in Sources */,
 				26BB5D2E29DD76D30069AF7B /* HomeViewController.swift in Sources */,
 				265ACE1929DBF7FD007B9FA6 /* ViewController.swift in Sources */,
-				26BB5D3629DD77E40069AF7B /* UIView.swift in Sources */,
+				26BB5D8129DE7AF00069AF7B /* ZoomAndSnapFlowLayout.swift in Sources */,
 				265ACE1529DBF7FD007B9FA6 /* AppDelegate.swift in Sources */,
 				26BB5D1729DD72340069AF7B /* Color.swift in Sources */,
 				26BB5D2829DD763C0069AF7B /* HomePresenter.swift in Sources */,
+				26BB5D5C29DDBDBE0069AF7B /* AssetCollectionViewCell.swift in Sources */,
 				26BB5D0929DD6F5D0069AF7B /* MainTabBarPresenter.swift in Sources */,
 				26BB5D3429DD77930069AF7B /* UINavigationController.swift in Sources */,
 				26BB5CFB29DD6E180069AF7B /* MainTabBarCoordinator.swift in Sources */,
@@ -683,6 +745,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		26BB5D7C29DE74590069AF7B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -700,6 +770,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 26BB5D4D29DD90B70069AF7B /* XCRemoteSwiftPackageReference "R" */;
 			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		26BB5D7D29DE74590069AF7B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26BB5D7C29DE74590069AF7B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

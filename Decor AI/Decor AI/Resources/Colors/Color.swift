@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Color {
+enum ColorFactory {
 
     private enum Figma {
         static let lightGray = UIColor(hexString: "E8E8E8")

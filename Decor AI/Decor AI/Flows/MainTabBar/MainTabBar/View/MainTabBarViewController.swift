@@ -58,10 +58,10 @@ private extension MainTabBarViewController {
 
     func configureAppearance() {
         tabBar.barTintColor = UIColor.clear
-        tabBar.tintColor = Color.TabBar.selectedTabItem
-        tabBar.unselectedItemTintColor = Color.TabBar.tabItem
-        tabBar.shadowImage = UIImage(color: Color.TabBar.stroke)
-        tabBar.backgroundImage = UIImage(color: Color.TabBar.background)
+        tabBar.tintColor = ColorFactory.TabBar.selectedTabItem
+        tabBar.unselectedItemTintColor = ColorFactory.TabBar.tabItem
+        tabBar.shadowImage = UIImage(color: ColorFactory.TabBar.stroke)
+        tabBar.backgroundColor = .gray
     }
 
     func configureControllers() {

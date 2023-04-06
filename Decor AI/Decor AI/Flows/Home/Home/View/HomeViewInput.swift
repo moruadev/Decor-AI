@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Photos
 
-protocol HomeViewInput: class {
+protocol HomeViewInput: AnyObject {
     func setupInitialState()
+    func updateCollectionView(with assets: PHFetchResult<PHAsset>)
 }
